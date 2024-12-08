@@ -15,6 +15,8 @@ amarillo.addEventListener("click", () => changeColor(amarillo, "black"))
 
 // Keys
 const keyBox = document.getElementById("key")
+let backgroundColor
+
 
 const createDiv = (color) => {
 	const newDiv = document.createElement('div')
@@ -26,17 +28,22 @@ const createDiv = (color) => {
 
 document.addEventListener('keydown', function (event) {
 	if (event.key === 'a') {
-		changeColor(keyBox, "pink")
+		backgroundColor = 'pink'
 	} else if (event.key === 's') {
-		changeColor(keyBox, "orange")
+		backgroundColor = 'orange'
 	} else if (event.key === 'd') {
-		changeColor(keyBox, "lightblue")
+		backgroundColor = 'lightblue'
 	} else if (event.key === 'q') {
-		createDiv("purple")
+		backgroundColor = 'purple'
 	} else if (event.key === 'w') {
-		createDiv("grey")
+		backgroundColor = 'grey'
 	} else if (event.key === 'e') {
-		createDiv("brown")
+		backgroundColor = 'brown'
+	}
+
+	if (['a', 's', 'd'].includes(event.key)) {
+		changeColor(keyBox, backgroundColor);
+	} else if (['q', 'w', 'e'].includes(event.key)) {
+		createDiv(backgroundColor);
 	}
 })
-
